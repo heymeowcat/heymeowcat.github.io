@@ -4,6 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .project {
+        background-color: #fff;
+        padding: 2em;
+        text-align: center;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .project:hover {
+        transform: translateY(-5px);
+      }
+
+      .project h3 {
+        color: #424242;
+        font-size: 1.8em;
+        margin-bottom: 0.5em;
+      }
+
+      .project-description {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+      }
+
+      .project-button {
+        display: inline-block;
+        background-color: #424242;
+        color: #fff;
+        text-decoration: none;
+        padding: 0.5em 1em;
+        border-radius: 8px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .project-button:hover {
+        background-color: #333;
+      }
+    </style>
     <title>Vidura Fernando - Software Engineer</title>
   </head>
   <body>
@@ -27,23 +67,7 @@
         <div class="project-header">
           <h2>Projects</h2>
         </div>
-        <div class="project-container">
-          <div class="project">
-            <h3>Project Title</h3>
-            <p class="project-description">Project Description</p>
-            <a href="#" class="project-button">View Project</a>
-          </div>
-          <div class="project">
-            <h3>Project Title</h3>
-            <p class="project-description">Project Description</p>
-            <a href="#" class="project-button">View Project</a>
-          </div>
-          <div class="project">
-            <h3>Project Title</h3>
-            <p class="project-description">Project Description</p>
-            <a href="#" class="project-button">View Project</a>
-          </div>
-        </div>
+        <div id="github-projects" class="project-container"></div>
       </div>
     </section>
 
@@ -72,4 +96,45 @@
       </div>
     </footer>
   </body>
+  <script>
+    $(document).ready(function () {
+      const apiUrl = "https://api.github.com/users/heymeowcat/repos";
+
+      $.get(apiUrl, function (data) {
+        const sortedRepos = data
+          .filter((repo) => repo.description && repo.language !== null)
+          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+        sortedRepos.forEach(function (repo) {
+          const technologies = repo.language
+            ? repo.language.split(",").slice(0, 3).join(", ")
+            : "";
+
+          const projectHtml = `
+                    <div class='project'>
+                        <h3>${repo.name}</h3>
+                        <p class="project-description">${repo.description}</p>
+                        <p>Last Updated: ${formatDate(repo.updated_at)}</p>
+                        ${
+                          technologies && `<p>Technologies: ${technologies}</p>`
+                        }
+                        <a href="${
+                          repo.html_url
+                        }" class="project-button">View Project</a>
+                    </div>
+                `;
+          $("#github-projects").append(projectHtml);
+        });
+      });
+
+      function formatDate(dateString) {
+        const options = { year: "numeric", month: "long", day: "numeric" };
+        const formattedDate = new Date(dateString).toLocaleDateString(
+          undefined,
+          options
+        );
+        return formattedDate;
+      }
+    });
+  </script>
 </html>
