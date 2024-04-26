@@ -17,45 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-      .project {
-        background-color: #fff;
-        padding: 2em;
-        text-align: center;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .project:hover {
-        transform: translateY(-5px);
-      }
-
-      .project h3 {
-        color: #424242;
-        font-size: 1.8em;
-        margin-bottom: 0.5em;
-      }
-
-      .project-description {
-        font-size: 1.2em;
-        margin-bottom: 1em;
-      }
-
-      .project-button {
-        display: inline-block;
-        background-color: #424242;
-        color: #fff;
-        text-decoration: none;
-        padding: 0.5em 1em;
-        border-radius: 8px;
-        transition: background-color 0.3s ease-in-out;
-      }
-
-      .project-button:hover {
-        background-color: #333;
-      }
-    </style>
     <title>Vidura Fernando - Software Engineer</title>
   </head>
   <body>
@@ -148,5 +109,42 @@
         return formattedDate;
       }
     });
+  </script>
+  <script>
+    function applyDarkMode() {
+      document.body.style.backgroundColor = "#121212";
+      document.body.style.color = "#d1d1d1";
+      const projects = document.querySelectorAll(".project");
+      projects.forEach((project) => {
+        project.style.backgroundColor = "#1e1e1e";
+        project.style.color = "#d1d1d1";
+      });
+    }
+
+    function applyLightMode() {
+      document.body.style.backgroundColor = "#f0f0f0";
+      document.body.style.color = "#333";
+      const projects = document.querySelectorAll(".project");
+      projects.forEach((project) => {
+        project.style.backgroundColor = "#fff";
+        project.style.color = "#424242";
+      });
+    }
+
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      applyDarkMode();
+    } else {
+      applyLightMode();
+    }
+
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (event) => {
+        if (event.matches) {
+          applyDarkMode();
+        } else {
+          applyLightMode();
+        }
+      });
   </script>
 </html>
