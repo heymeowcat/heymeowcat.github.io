@@ -53,6 +53,7 @@
             target="_blank"
           >
             <svg
+              id="github-icon"
               height="32"
               version="1.1"
               viewBox="0 0 32 32"
@@ -141,6 +142,7 @@
         project.style.backgroundColor = "#1e1e1e";
         project.style.color = "#d1d1d1";
       });
+      document.getElementById("github-icon").querySelector("path").style.fill = "#ffffff";
     }
 
     function applyLightMode() {
@@ -151,6 +153,7 @@
         project.style.backgroundColor = "#fff";
         project.style.color = "#424242";
       });
+      document.getElementById("github-icon").querySelector("path").style.fill = "#000000";
     }
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -167,6 +170,18 @@
         } else {
           applyLightMode();
         }
+      });
+
+    window.addEventListener('scroll', function () {
+        const scrollPosition = window.pageYOffset;
+        const header = document.querySelector('header');
+        const headerContent = document.querySelector('.header-content');
+        header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+        headerContent.style.transform = `translateY(${scrollPosition * 0.5}px) scale(${1 + scrollPosition * 0.0005})`;
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+          particle.style.transform = `translateY(${scrollPosition * (0.1 * (index + 1))}px)`;
+        });
       });
   </script>
   <script>

@@ -6,21 +6,40 @@ body {
   overflow-x: hidden;
 }
 
+
 .container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
   width: 80%;
   margin: 0 auto;
 }
+
 
 header {
   background-color: #fafafa;
   color: #616161;
   text-align: center;
   padding: 10em 0;
+  overflow: hidden;
 }
+
+
 
 header h1 {
   font-size: 4em;
   margin: 0;
+  transition: transform 0.3s ease-out;
+}
+
+header p {
+font-size: 1.5rem;
+  transition: transform 0.3s ease-out;
 }
 
 .skills {
@@ -119,6 +138,11 @@ section h2 {
   flex-direction: row;
 }
 
+.github-info p{
+  padding-left: 8px;
+}
+
+
 .github-info a {
   text-decoration: none;
   color: inherit;
@@ -141,10 +165,32 @@ section h2 {
     color: #d1d1d1;
   }
 
-  .chip {
-    background-color: #333;
-    color: #d1d1d1;
-  }
+.chip {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Slight transparent background */
+  backdrop-filter: blur(10px);
+  /* Apply the blur effect */
+  border-radius: 25px;
+  color: #ffffff;
+  /* Text color */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Subtle border */
+  transition: all 0.3s ease;
+  /* Smooth transition for hover effect */
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0);
+  /* No initial glow */
+}
+
+/* Hover effect */
+.chip:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+  /* Glow effect on hover */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  /* More visible border on hover */
+}
 
   section h2 {
     color: #d1d1d1;
@@ -159,14 +205,57 @@ section h2 {
     color: #d1d1d1;
   }
 
-  .project-button {
-    background-color: #4a4a4a;
-    color: #d1d1d1;
+.project-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4a4a4a;
+  color: #d1d1d1;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.project-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: linear-gradient(120deg, cyan, pink, rgb(251, 116, 251), lime, rgb(255, 207, 76), rgb(255, 70, 122),rgb(176, 136, 255),cyan) border-box;
+  background-size: 300% 100%;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-button:hover {
+  background-color: #525252;
+}
+
+.project-button:hover::after {
+  opacity: 1;
+  animation: moveGradient 5s linear infinite;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
   }
 
-  .project-button:hover {
-    background-color: #5e5e5e;
+  100% {
+    background-position: 300% 50%;
   }
+}
 
   .footer {
     background-color: #1e1e1e;
@@ -191,54 +280,70 @@ section h2 {
 
 .shape {
   position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 50%;
-  opacity: 0.7;
-  animation: move-shape 30s linear infinite;
+  animation: float 5s ease-in-out infinite;
 }
 
 .shape-1 {
-  width: 300px;
-  height: 300px;
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-  top: 10%;
-  left: 20%;
-  animation-delay: 0s;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ffecd2, #fcb69f);
+  top: 20%;
+  left: 10%;
 }
 
 .shape-2 {
-  width: 200px;
-  height: 200px;
-  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-  top: 30%;
-  left: 60%;
-  animation-delay: -10s;
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #d2ffd4, #c7fc9f);
+  top: 50%;
+  right: 20%;
 }
 
 .shape-3 {
-  width: 150px;
-  height: 150px;
-  background: linear-gradient(135deg, #ffecd2, #fcb69f);
-  top: 70%;
-  left: 10%;
-  animation-delay: -20s;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #d2feff, #9fecfc);
+  bottom: 30%;
+  left: 25%;
 }
 
 .shape-4 {
-  width: 250px;
-  height: 250px;
-  background: linear-gradient(135deg, #d4fc79, #96e6a1);
-  top: 50%;
-  left: 80%;
-  animation-delay: -30s;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #fed2ff, #fc9ffc);
+  bottom: 15%;
+  right: 10%;
 }
 
-@keyframes move-shape {
-  0% {
-    transform: translateX(0) rotate(0deg);
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
   }
 
-  100% {
-    transform: translateX(-100vw) rotate(360deg);
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.particle {
+  position: absolute;
+  animation: drift 10s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes drift {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-100vh);
   }
 }
 
