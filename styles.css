@@ -30,7 +30,6 @@ header {
 }
 
 
-
 header h1 {
   font-size: 4em;
   margin: 0;
@@ -49,13 +48,6 @@ font-size: 1.5rem;
   padding: 12px;
 }
 
-.chip {
-  background-color: #f0f0f0;
-  color: #000;
-  padding: 8px 12px;
-  margin: 4px;
-  border-radius: 20px;
-}
 
 header p {
   font-size: 1.2em;
@@ -164,33 +156,6 @@ section h2 {
     background-color: #1e1e1e;
     color: #d1d1d1;
   }
-
-.chip {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  /* Slight transparent background */
-  backdrop-filter: blur(10px);
-  /* Apply the blur effect */
-  border-radius: 25px;
-  color: #ffffff;
-  /* Text color */
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  /* Subtle border */
-  transition: all 0.3s ease;
-  /* Smooth transition for hover effect */
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0);
-  /* No initial glow */
-}
-
-/* Hover effect */
-.chip:hover {
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
-  /* Glow effect on hover */
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  /* More visible border on hover */
-}
 
   section h2 {
     color: #d1d1d1;

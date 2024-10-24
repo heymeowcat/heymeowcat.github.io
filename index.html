@@ -70,6 +70,42 @@
       </div>
     </footer>
   </body>
+  <style>
+    :root {
+      --chip-bg-color: rgba(255, 255, 255, 0.1);
+      --chip-text-color: #f0f0f0;
+      --chip-border-color: rgba(255, 255, 255, 0.2);
+      --chip-box-shadow: rgba(255, 255, 255, 0);
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --chip-bg-color: rgba(0, 0, 0, 0.1);
+        --chip-text-color: #000000;
+        --chip-border-color: rgba(0, 0, 0, 0.2);
+        --chip-box-shadow: rgba(0, 0, 0, 0);
+      }
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
+      background-color: var(--chip-bg-color);
+      color: var(--chip-text-color);
+      border: 1px solid var(--chip-border-color);
+      border-radius: 25px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 5px var(--chip-box-shadow);
+    }
+
+    .chip:hover {
+      box-shadow: 0 0 15px var(--chip-box-shadow);
+      border: 1px solid var(--chip-border-color);
+    }
+  </style>
+
   <script>
     $(document).ready(function () {
       const username = "heymeowcat";
@@ -142,7 +178,8 @@
         project.style.backgroundColor = "#1e1e1e";
         project.style.color = "#d1d1d1";
       });
-      document.getElementById("github-icon").querySelector("path").style.fill = "#ffffff";
+      document.getElementById("github-icon").querySelector("path").style.fill =
+        "#ffffff";
     }
 
     function applyLightMode() {
@@ -153,7 +190,8 @@
         project.style.backgroundColor = "#fff";
         project.style.color = "#424242";
       });
-      document.getElementById("github-icon").querySelector("path").style.fill = "#000000";
+      document.getElementById("github-icon").querySelector("path").style.fill =
+        "#000000";
     }
 
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -172,17 +210,21 @@
         }
       });
 
-    window.addEventListener('scroll', function () {
-        const scrollPosition = window.pageYOffset;
-        const header = document.querySelector('header');
-        const headerContent = document.querySelector('.header-content');
-        header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-        headerContent.style.transform = `translateY(${scrollPosition * 0.5}px) scale(${1 + scrollPosition * 0.0005})`;
-        const particles = document.querySelectorAll('.particle');
-        particles.forEach((particle, index) => {
-          particle.style.transform = `translateY(${scrollPosition * (0.1 * (index + 1))}px)`;
-        });
+    window.addEventListener("scroll", function () {
+      const scrollPosition = window.pageYOffset;
+      const header = document.querySelector("header");
+      const headerContent = document.querySelector(".header-content");
+      header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+      headerContent.style.transform = `translateY(${
+        scrollPosition * 0.5
+      }px) scale(${1 + scrollPosition * 0.0005})`;
+      const particles = document.querySelectorAll(".particle");
+      particles.forEach((particle, index) => {
+        particle.style.transform = `translateY(${
+          scrollPosition * (0.1 * (index + 1))
+        }px)`;
       });
+    });
   </script>
   <script>
     const particleContainer = document.querySelector(".particle-container");
