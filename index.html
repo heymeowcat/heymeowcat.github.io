@@ -1,253 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Portfolio of Vidura Fernando, a Software Engineer specializing in React Native, and more."
-    />
-    <meta
-      name="keywords"
-      content="Vidura Fernando, heymeowcat, software engineer, React, React Native, GitHub, projects, portfolio"
-    />
+    <meta name="description" content="Portfolio of Vidura Fernando, a Software Engineer specializing in React Native, and more." />
+    <meta name="keywords" content="Vidura Fernando, heymeowcat, software engineer, React, React Native, GitHub, projects, portfolio" />
     <meta name="author" content="Vidura Fernando" />
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Vidura Fernando | Software Engineer</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <title>Vidura Fernando - Software Engineer</title>
-  </head>
-  <body>
-    <header>
-      <div class="bg-container">
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-container">
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-        <div class="particle-container"></div>
-      </div>
-      <div class="container header-content">
-        <h1 id="github-name">Loading...</h1>
-        <p>Software Engineer</p>
-        <div id="github-skills" class="skills"></div>
-      </div>
+    </div>
+
+    <header>
+        <div class="container header-content">
+            <h1 id="github-name">Loading...</h1>
+            <p>Software Engineer</p>
+            <div id="github-skills" class="skills"></div>
+        </div>
     </header>
 
-    <section id="projects">
-      <div class="container">
-        <div class="project-header">
-          <h2>Projects</h2>
-        </div>
-        <div id="github-projects" class="project-container"></div>
-      </div>
-    </section>
+    <main>
+        <!-- About Me Section -->
+        <section id="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2 class="section-title">About Me</h2>
+                        <p class="about-description">
+                            I'm a passionate Software Engineer specializing in mobile and web development. 
+                            With expertise in React Native, I build cross-platform applications that deliver 
+                            exceptional user experiences. I love exploring new technologies and creating 
+                            innovative solutions to complex problems.
+                        </p>
+                        
+                        <div class="tech-stack">
+                            <h3>Tech Stack</h3>
+                            <div class="tech-grid">
+                                <div class="tech-item">
+                                    <i class="fab fa-react tech-icon" style="color: #61DAFB;"></i>
+                                    <span>React Native</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-brain tech-icon" style="color: #FF6F61;"></i>
+                                    <span>Machine Learning</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fab fa-js tech-icon" style="color: #F7DF1E;"></i>
+                                    <span>JavaScript</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fab fa-js tech-icon" style="color: #3178C6;"></i>
+                                    <span>TypeScript</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fab fa-python tech-icon" style="color: #3776AB;"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fab fa-aws tech-icon" style="color: #FF9900;"></i>
+                                    <span>AWS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="4">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="10">0</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number" data-target="10">0</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <div class="project-header">
+                    <h2>Selected Works</h2>
+                </div>
+                <div id="github-projects" class="project-container"></div>
+            </div>
+        </section>
+    </main>
 
     <footer class="footer">
-      <div class="container">
-        <div class="github-info">
-          <a
-            href="https://github.com/heymeowcat"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <svg
-              id="github-icon"
-              height="32"
-              version="1.1"
-              viewBox="0 0 32 32"
-              width="32"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M16 0.395c-8.836 0-16 7.163-16 16 0 7.069 4.585 13.067 10.942 15.182 0.8 0.148 1.094-0.347 1.094-0.77 0-0.381-0.015-1.642-0.022-2.979-4.452 0.968-5.391-1.888-5.391-1.888-0.728-1.849-1.776-2.341-1.776-2.341-1.452-0.993 0.11-0.973 0.11-0.973 1.606 0.113 2.452 1.649 2.452 1.649 1.427 2.446 3.743 1.739 4.656 1.33 0.143-1.034 0.558-1.74 1.016-2.14-3.554-0.404-7.29-1.777-7.29-7.907 0-1.747 0.625-3.174 1.649-4.295-0.166-0.403-0.714-2.030 0.155-4.234 0 0 1.344-0.43 4.401 1.64 1.276-0.355 2.645-0.532 4.005-0.539 1.359 0.006 2.729 0.184 4.008 0.539 3.054-2.070 4.395-1.64 4.395-1.64 0.871 2.204 0.323 3.831 0.157 4.234 1.026 1.12 1.647 2.548 1.647 4.295 0 6.145-3.743 7.498-7.306 7.895 0.574 0.497 1.085 1.47 1.085 2.963 0 2.141-0.019 3.864-0.019 4.391 0 0.426 0.288 0.925 1.099 0.768 6.354-2.118 10.933-8.113 10.933-15.18 0-8.837-7.164-16-16-16z"
-              ></path>
-            </svg>
-            <p>Github.com/heymeowcat</p>
-          </a>
+        <div class="container">
+            <div class="github-info">
+                <a href="https://github.com/heymeowcat" rel="noopener noreferrer" target="_blank">
+                    <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                    <p>github.com/heymeowcat</p>
+                </a>
+            </div>
         </div>
-      </div>
     </footer>
-  </body>
-  <style>
-    :root {
-      --chip-bg-color: rgba(255, 255, 255, 0.1);
-      --chip-text-color: #f0f0f0;
-      --chip-border-color: rgba(255, 255, 255, 0.2);
-      --chip-box-shadow: rgba(255, 255, 255, 0);
-    }
 
-    @media (prefers-color-scheme: light) {
-      :root {
-        --chip-bg-color: rgba(0, 0, 0, 0.1);
-        --chip-text-color: #000000;
-        --chip-border-color: rgba(0, 0, 0, 0.2);
-        --chip-box-shadow: rgba(0, 0, 0, 0);
-      }
-    }
-
-    .chip {
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      margin: 0.5rem;
-      background-color: var(--chip-bg-color);
-      color: var(--chip-text-color);
-      border: 1px solid var(--chip-border-color);
-      border-radius: 25px;
-      backdrop-filter: blur(10px);
-      transition: all 0.3s ease;
-      box-shadow: 0 0 5px var(--chip-box-shadow);
-    }
-
-    .chip:hover {
-      box-shadow: 0 0 15px var(--chip-box-shadow);
-      border: 1px solid var(--chip-border-color);
-    }
-  </style>
-
-  <script>
-    $(document).ready(function () {
-      const username = "heymeowcat";
-      const userApiUrl = `https://api.github.com/users/${username}`;
-      const reposApiUrl = `https://api.github.com/users/${username}/repos`;
-
-      $.get(userApiUrl, function (userData) {
-        $("#github-name").text(userData.name || username);
-      });
-
-      $.get(reposApiUrl, function (data) {
-        const sortedRepos = data
-          .filter((repo) => repo.description && repo.language !== null)
-          .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
-
-        const skillsSet = new Set();
-
-        sortedRepos.forEach(function (repo) {
-          if (repo.language) {
-            repo.language
-              .split(",")
-              .forEach((lang) => skillsSet.add(lang.trim()));
-          }
-          if (repo.topics) {
-            repo.topics.forEach((topic) => skillsSet.add(topic));
-          }
-        });
-
-        const skillsContainer = $("#github-skills");
-        Array.from(skillsSet)
-          .slice(0, 6)
-          .forEach((skill) => {
-            skillsContainer.append(`<span class="chip">${skill}</span>`);
-          });
-
-        renderProjects(sortedRepos);
-      });
-
-      function renderProjects(repos) {
-        repos.forEach(function (repo) {
-          const technologies = repo.language
-            ? repo.language.split(",").slice(0, 3).join(", ")
-            : "";
-
-          const projectHtml = `
-        <div class='project'>
-          <h3>${repo.name}</h3>
-          <p class="project-description">${repo.description}</p>
-          <p>Last Updated: ${formatDate(repo.updated_at)}</p>
-          ${technologies && `<p>Technologies: ${technologies}</p>`}
-          <a href="${repo.html_url}" class="project-button">View Project</a>
-        </div>
-      `;
-          $("#github-projects").append(projectHtml);
-        });
-      }
-
-      function formatDate(dateString) {
-        const options = { year: "numeric", month: "long", day: "numeric" };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-      }
-    });
-  </script>
-  <script>
-    function applyDarkMode() {
-      document.body.style.backgroundColor = "#121212";
-      document.body.style.color = "#d1d1d1";
-      const projects = document.querySelectorAll(".project");
-      projects.forEach((project) => {
-        project.style.backgroundColor = "#1e1e1e";
-        project.style.color = "#d1d1d1";
-      });
-      document.getElementById("github-icon").querySelector("path").style.fill =
-        "#ffffff";
-    }
-
-    function applyLightMode() {
-      document.body.style.backgroundColor = "#f0f0f0";
-      document.body.style.color = "#333";
-      const projects = document.querySelectorAll(".project");
-      projects.forEach((project) => {
-        project.style.backgroundColor = "#fff";
-        project.style.color = "#424242";
-      });
-      document.getElementById("github-icon").querySelector("path").style.fill =
-        "#000000";
-    }
-
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      applyDarkMode();
-    } else {
-      applyLightMode();
-    }
-
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (event) => {
-        if (event.matches) {
-          applyDarkMode();
-        } else {
-          applyLightMode();
-        }
-      });
-
-    window.addEventListener("scroll", function () {
-      const scrollPosition = window.pageYOffset;
-      const header = document.querySelector("header");
-      const headerContent = document.querySelector(".header-content");
-      header.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
-      headerContent.style.transform = `translateY(${
-        scrollPosition * 0.5
-      }px) scale(${1 + scrollPosition * 0.0005})`;
-      const particles = document.querySelectorAll(".particle");
-      particles.forEach((particle, index) => {
-        particle.style.transform = `translateY(${
-          scrollPosition * (0.1 * (index + 1))
-        }px)`;
-      });
-    });
-  </script>
-  <script>
-    const particleContainer = document.querySelector(".particle-container");
-
-    function createParticle() {
-      const particle = document.createElement("div");
-      particle.classList.add("particle");
-      particle.style.backgroundColor = `rgba(${Math.random() * 256}, ${
-        Math.random() * 256
-      }, ${Math.random() * 256}, 0.5)`;
-      particle.style.borderRadius = `${Math.random() * 50}%`;
-      particle.style.width = `${Math.random() * 20 + 5}px`;
-      particle.style.height = particle.style.width;
-      particle.style.left = `${Math.random() * 100}vw`;
-      particle.style.top = `${Math.random() * 100}vh`;
-      particle.style.animationDelay = `${Math.random() * 10}s`;
-      particleContainer.appendChild(particle);
-
-      setTimeout(() => {
-        particle.remove();
-      }, 10000);
-    }
-
-    setInterval(createParticle, 200);
-  </script>
+    <script src="script.js"></script>
+</body>
 </html>
