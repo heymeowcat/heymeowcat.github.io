@@ -50,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             chip.textContent = skill;
             chip.style.animationDelay = `${index * 0.1}s`;
             skillsContainer.appendChild(chip);
+            // Add a space for SEO text extraction
+            skillsContainer.appendChild(document.createTextNode(" "));
         });
     }
 
