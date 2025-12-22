@@ -1,5 +1,43 @@
 ---
 import "../styles/global.css";
+
+const featuredProjects = [
+	{
+		name: "React Native Safe Upgrade",
+		description:
+			"Safely upgrade React Native dependencies. View file changes between versions and get compatibility-checked recommendations.",
+		url: "https://heymeowcat.is-a.dev/rn-safe-upgrade/",
+		tech: "React Native, Tooling, Upgrades",
+	},
+	{
+		name: "NoteGuard",
+		description:
+			"Private, offline note-taking app with on-device AI and military-grade encryption. Your thoughts belong to you.",
+		url: "https://heymeowcat.is-a.dev/noteguard-site/",
+		tech: "Android, Local AI, Privacy",
+	},
+	{
+		name: "SoundDrift",
+		description:
+			"Stream high-quality audio from your Android device to Windows, macOS, or Linux with low latency.",
+		url: "https://heymeowcat.is-a.dev/SoundDrift-site/",
+		tech: "Android, Audio Streaming, Cross-Platform",
+	},
+	{
+		name: "CleanBoard",
+		description:
+			"A minimalist, privacy-focused Android keyboard for seamless Sinhala and English typing.",
+		url: "https://heymeowcat.is-a.dev/cleanboard-site/",
+		tech: "Android, Keyboard, Sinhala",
+	},
+	{
+		name: "Dev Tools",
+		description:
+			"Essential developer utilities including a JSON Visualizer to beautify and validate data.",
+		url: "https://heymeowcat.is-a.dev/tools/",
+		tech: "Web Tools, JSON, Utilities",
+	},
+];
 ---
 
 <!doctype html>
@@ -16,11 +54,11 @@ import "../styles/global.css";
 		/>
 		<meta
 			name="description"
-			content="Vidura Fernando (Heymeowcat) is a Software Engineer specializing in React Native, Mobile, and Web Development. Explore projects, skills, and the portfolio of a passionate developer."
+			content="Vidura Fernando (Heymeowcat) is a Software Engineer specializing in React Native, Mobile, and Web Development. Explore projects like NoteGuard, SoundDrift, and RN Safe Upgrade."
 		/>
 		<meta
 			name="keywords"
-			content="Vidura Fernando, heymeowcat, Software Engineer, React Native Developer, Web Developer, Mobile App Development, JavaScript, TypeScript, Python, Portfolio"
+			content="Vidura Fernando, heymeowcat, Software Engineer, React Native, NoteGuard, SoundDrift, CleanBoard, RN Safe Upgrade, Mobile App Development, Portfolio"
 		/>
 		<meta name="author" content="Vidura Fernando" />
 		<meta name="robots" content="index, follow" />
@@ -59,26 +97,45 @@ import "../styles/global.css";
 		/>
 
 		<!-- JSON-LD Structured Data -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Person",
-				"name": "Vidura Fernando",
-				"alternateName": "heymeowcat",
-				"url": "https://heymeowcat.is-a.dev",
-				"image": "https://avatars.githubusercontent.com/u/heymeowcat",
-				"sameAs": [
-					"https://github.com/heymeowcat",
-					"https://linkedin.com/in/vidura-fernando"
-				],
-				"jobTitle": "Software Engineer",
-				"worksFor": {
-					"@type": "Organization",
-					"name": "Self-Employed"
+		<script
+			type="application/ld+json"
+			set:html={JSON.stringify([
+				{
+					"@context": "https://schema.org",
+					"@type": "Person",
+					name: "Vidura Fernando",
+					alternateName: "heymeowcat",
+					url: "https://heymeowcat.is-a.dev",
+					image: "https://avatars.githubusercontent.com/u/heymeowcat",
+					sameAs: [
+						"https://github.com/heymeowcat",
+						"https://linkedin.com/in/vidura-fernando",
+					],
+					jobTitle: "Software Engineer",
+					worksFor: {
+						"@type": "Organization",
+						name: "Self-Employed",
+					},
+					description:
+						"Passionate Software Engineer specializing in mobile and web development with expertise in React Native, JavaScript, and Python.",
 				},
-				"description": "Passionate Software Engineer specializing in mobile and web development with expertise in React Native, JavaScript, and Python."
-			}
-		</script>
+				{
+					"@context": "https://schema.org",
+					"@type": "ItemList",
+					itemListElement: featuredProjects.map((project, index) => ({
+						"@type": "SoftwareSourceCode",
+						position: index + 1,
+						name: project.name,
+						description: project.description,
+						url: project.url,
+						author: {
+							"@type": "Person",
+							name: "Vidura Fernando",
+						},
+					})),
+				},
+			])}
+		/>
 
 		<!-- Favicon -->
 		<link
@@ -220,7 +277,38 @@ import "../styles/global.css";
 					<div class="project-header">
 						<h2>Selected Works</h2>
 					</div>
-					<div id="github-projects" class="project-container"></div>
+					<div id="github-projects" class="project-container">
+						{
+							featuredProjects.map((project, index) => (
+								<div
+									class="project-card glass reveal static-project"
+									style={`animation-delay: ${index * 0.1}s`}
+									data-name={project.name}
+								>
+									<div class="card-content">
+										<h3>{project.name}</h3>
+										<p class="project-description">
+											{project.description}
+										</p>
+										<div class="card-meta">
+											<span class="tech">
+												{project.tech}
+											</span>
+										</div>
+										<a
+											href={project.url}
+											target="_blank"
+											class="project-link"
+										>
+											View Project{" "}
+											<span class="arrow">→</span>
+										</a>
+									</div>
+									<div class="card-glow" />
+								</div>
+							))
+						}
+					</div>
 				</div>
 			</section>
 		</main>

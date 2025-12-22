@@ -2,8 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://heymeowcat.is-a.dev/</loc>
-        <lastmod>2025-11-25</lastmod>
+        <lastmod>2025-12-22</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://heymeowcat.is-a.dev/rn-safe-upgrade/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://heymeowcat.is-a.dev/noteguard-site/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://heymeowcat.is-a.dev/SoundDrift-site/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://heymeowcat.is-a.dev/cleanboard-site/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://heymeowcat.is-a.dev/tools/</loc>
+        <lastmod>2025-12-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>

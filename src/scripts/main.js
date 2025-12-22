@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     const username = "heymeowcat";
     const userApiUrl = `https://api.github.com/users/${username}`;
-    const reposApiUrl = `https://api.github.com/users/${username}/repos`;
+    const reposApiUrl = `https://api.github.com/users/${username}/repos?sort=updated&per_page=100`;
+
+    // Initialize Static Projects
+    const staticProjects = document.querySelectorAll('.static-project');
+    const existingProjectNames = new Set();
+    
+    staticProjects.forEach(card => {
+        const name = card.getAttribute('data-name');
+        if (name) existingProjectNames.add(name);
+        
+        // Add tilt effect listeners to static cards
+        card.addEventListener('mousemove', handleTilt);
+        card.addEventListener('mouseleave', resetTilt);
+    });
 
     // Fetch User Data
     fetch(userApiUrl)
@@ -22,7 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
             const sortedRepos = data
-                .filter((repo) => repo.description && repo.language !== null)
+                .filter((repo) => 
+                    repo.description && 
+                    repo.language !== null &&
+                    !existingProjectNames.has(repo.name) // Filter out static projects
+                )
                 .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
 
             const skillsSet = new Set();
@@ -58,6 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderProjects(repos) {
         const projectsContainer = document.getElementById("github-projects");
         if (!projectsContainer) return;
+        const initialDelayOffset = document.querySelectorAll('.static-project').length * 0.1;
 
         repos.forEach((repo, index) => {
             const technologies = repo.language
@@ -66,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const projectCard = document.createElement("div");
             projectCard.className = "project-card glass";
-            projectCard.style.animationDelay = `${index * 0.1}s`; // Staggered animation
+            projectCard.style.animationDelay = `${initialDelayOffset + (index * 0.1)}s`; // Staggered animation with offset
             
             projectCard.innerHTML = `
                 <div class="card-content">
@@ -86,6 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
             projectCard.addEventListener('mouseleave', resetTilt);
             
             projectsContainer.appendChild(projectCard);
+            
+            if (typeof revealObserver !== 'undefined') {
+                revealObserver.observe(projectCard);
+            }
         });
     }
 
