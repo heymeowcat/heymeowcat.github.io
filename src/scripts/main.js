@@ -160,7 +160,158 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousedown', () => cursor.classList.add('active'));
     document.addEventListener('mouseup', () => cursor.classList.remove('active'));
 
-    // Combined Background Animation (Mouse Movement + Scroll)
+    
+    const canvas = document.getElementById("hero-canvas");
+    const ctx = canvas.getContext("2d");
+    const heroContent = document.getElementById("hero-content");
+    const letterBoxes = document.querySelectorAll(".letter-box");
+    
+    let canvasW, canvasH;
+    let canvasParticles = [];
+    const particleCount = 200;
+    
+    let heroMouse = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    let heroScroll = { y: 0, targetY: 0, progress: 0 };
+    
+    function resizeCanvas() {
+        if (!canvas) return;
+        canvasW = canvas.width = window.innerWidth;
+        canvasH = canvas.height = window.innerHeight;
+        initHeroParticles();
+    }
+    
+    class HeroParticle {
+        constructor() {
+            this.reset();
+        }
+        reset() {
+            this.x = Math.random() * canvasW;
+            this.y = Math.random() * canvasH;
+            this.z = Math.random() * canvasW;
+            this.pz = this.z;
+        }
+        update() {
+            const warpIntensity = 1 + heroScroll.progress * 4;
+            let speed = (0.5 + Math.abs(heroMouse.x * 5)) * warpIntensity;
+            this.z -= speed;
+            if (this.z < 1) {
+                this.reset();
+                this.z = canvasW;
+                this.pz = this.z;
+            }
+        }
+        draw() {
+            let sx = (this.x - canvasW / 2) * (canvasW / this.z) + canvasW / 2;
+            let sy = (this.y - canvasH / 2) * (canvasW / this.z) + canvasH / 2;
+            let r = Math.min(canvasW / this.z, 2.5); 
+            
+            let psx = (this.x - canvasW / 2) * (canvasW / this.pz) + canvasW / 2;
+            let psy = (this.y - canvasH / 2) * (canvasW / this.pz) + canvasH / 2;
+    
+            const alpha = Math.min(1, r / 5); 
+    
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(0, 242, 255, ${alpha * 0.5})`;
+            ctx.lineWidth = r;
+            ctx.moveTo(sx, sy);
+            ctx.lineTo(psx, psy);
+            ctx.stroke();
+    
+            ctx.beginPath();
+            ctx.fillStyle = `rgba(200, 250, 255, ${alpha})`;
+            ctx.arc(sx, sy, r, 0, Math.PI * 2);
+            ctx.fill();
+    
+            this.pz = this.z;
+        }
+    }
+    
+    function initHeroParticles() {
+        canvasParticles = [];
+        const count = window.innerWidth < 768 ? 100 : particleCount;
+        for (let i = 0; i < count; i++) {
+            canvasParticles.push(new HeroParticle());
+        }
+    }
+    
+    window.addEventListener("mousemove", (e) => {
+        heroMouse.targetX = (e.clientX / window.innerWidth - 0.5) * 2;
+        heroMouse.targetY = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+    
+    window.addEventListener("scroll", () => {
+        heroScroll.targetY = window.scrollY;
+        heroScroll.progress = Math.min(1, window.scrollY / 250);
+    });
+    
+    function animateHero() {
+        if (!canvas) return;
+        
+        ctx.clearRect(0, 0, canvasW, canvasH);
+    
+        heroMouse.x += (heroMouse.targetX - heroMouse.x) * 0.1;
+        heroMouse.y += (heroMouse.targetY - heroMouse.y) * 0.1;
+        heroScroll.y += (heroScroll.targetY - heroScroll.y) * 0.1;
+    
+        canvasParticles.forEach(p => { p.update(); p.draw(); });
+    
+        if (heroContent) {
+            const rx = heroMouse.y * -8;
+            const ry = heroMouse.x * 12;
+            heroContent.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+        }
+    
+        letterBoxes.forEach((box, i) => {
+            const deltaIndex = 5 - (2 * i);
+            const translateX = deltaIndex * 110 * heroScroll.progress;
+    
+            const letterWindow = 1 / 6;
+            const letterStart = i * letterWindow;
+            const letterEnd = letterStart + letterWindow;
+            
+            let letterProgress = 0;
+            if (heroScroll.progress >= letterStart && heroScroll.progress <= letterEnd) {
+                letterProgress = (heroScroll.progress - letterStart) / letterWindow;
+            } else if (heroScroll.progress > letterEnd) {
+                letterProgress = 1;
+            }
+            
+            let rotation;
+            if (i < 3) {
+                rotation = letterProgress * 180;
+            } else {
+                rotation = 180 + (letterProgress * 180);
+            }
+            
+            const scalePulse = 1 + Math.sin(letterProgress * Math.PI) * 0.1;
+            const yOffset = Math.sin(letterProgress * Math.PI) * -10;
+            
+            box.style.transform = `
+                translateX(${translateX}%) 
+                rotateX(${rotation}deg) 
+                rotateY(${rotation}deg) 
+                scale(${scalePulse}) 
+                translateY(${yOffset}px)
+            `;
+            
+            if (letterProgress > 0 && letterProgress < 1) {
+                box.classList.add('flipping');
+            } else {
+                box.classList.remove('flipping');
+            }
+        });
+    
+        requestAnimationFrame(animateHero);
+    }
+    
+    if (canvas) {
+        resizeCanvas();
+        window.addEventListener("resize", resizeCanvas);
+        animateHero();
+    }
+   
+
+    
     let lastScrollY = window.pageYOffset;
     let scrollVelocity = 0;
     let isScrolling = false;
@@ -168,21 +319,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let mouseX = 0;
     let mouseY = 0;
     
-    // Define movement directions for each shape
     const shapeDirections = [
         { x: 1, y: 0.3 },    
         { x: -1, y: 0.2 },   
         { x: 0.5, y: -0.5 } 
     ];
     
-    // Track mouse position
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
         updateShapePositions();
     });
     
-    // Track scroll position
     window.addEventListener('scroll', () => {
         const currentScrollY = window.pageYOffset;
         scrollVelocity = currentScrollY - lastScrollY;
@@ -191,10 +339,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         updateShapePositions();
         
-        // Clear previous timeout
         clearTimeout(scrollTimeout);
-        
-        // Set timeout to detect when scrolling stops
         scrollTimeout = setTimeout(() => {
             isScrolling = false;
             smoothStopShapes();
@@ -207,30 +352,19 @@ document.addEventListener('DOMContentLoaded', () => {
         
         shapes.forEach((shape, index) => {
             const direction = shapeDirections[index] || { x: 0, y: 1 };
-            
-            // Mouse parallax effect
             const speed = (index + 1) * 20;
             const mouseXOffset = (window.innerWidth / 2 - mouseX) / speed;
             const mouseYOffset = (window.innerHeight / 2 - mouseY) / speed;
             
-            // Scroll-based directional movement
             const scrollXOffset = scrollY * direction.x * 0.8;
             const scrollYOffset = scrollY * direction.y * 0.8;
             
-            // Combine both movements
             const finalX = mouseXOffset + scrollXOffset;
             const finalY = mouseYOffset + scrollYOffset;
-            
-            // Add rotation based on scroll
             const rotation = scrollY * 0.03 * (index + 1);
-            
-            // Subtle scale effect
             const scale = 1 + (Math.sin(scrollY * 0.002) * 0.15);
             
-            // Apply combined transform
             shape.style.transform = `translate(${finalX}px, ${finalY}px) rotate(${rotation}deg) scale(${scale})`;
-            
-            // Slight opacity change for depth effect
             const opacity = 0.5 + Math.abs(Math.sin(scrollY * 0.001)) * 0.2;
             shape.style.opacity = opacity;
         });
@@ -242,15 +376,12 @@ document.addEventListener('DOMContentLoaded', () => {
             shape.style.transition = 'transform 0.8s ease-out, opacity 0.8s ease-out';
         });
         
-        // Reset to faster transition after stop animation
         setTimeout(() => {
             shapes.forEach((shape) => {
                 shape.style.transition = 'transform 0.1s ease-out, opacity 0.2s ease-out';
             });
         }, 800);
     }
-
-
 
     // Particle Click Effect
     document.addEventListener('click', (e) => {
