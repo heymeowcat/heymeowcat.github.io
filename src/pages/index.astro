@@ -365,6 +365,13 @@ const featuredProjects = [
 								problems.
 							</p>
 
+							<div class="resume-cta">
+								<button id="download-resume-btn" class="resume-btn" type="button">
+									<i class="fas fa-file-arrow-down"></i>
+									<span>Download Resume</span>
+								</button>
+							</div>
+
 							<div class="tech-stack">
 								<h3>Tech Stack</h3>
 								<div class="tech-grid">
@@ -496,5 +503,15 @@ const featuredProjects = [
 		</footer>
 
 		<script src="../scripts/main.js"></script>
+		<script>
+			import { generateResumePDF } from "../scripts/resume.js";
+
+			const resumeBtn = document.getElementById("download-resume-btn");
+			if (resumeBtn) {
+				resumeBtn.addEventListener("click", () => {
+					generateResumePDF();
+				});
+			}
+		</script>
 	</body>
 </html>
