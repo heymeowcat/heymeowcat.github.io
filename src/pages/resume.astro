@@ -1,0 +1,302 @@
+---
+import "../styles/global.css";
+
+const site = "https://heymeowcat.is-a.dev";
+
+const summary =
+	"Software Engineer with four years of experience building cross-platform mobile applications with React Native, React, TypeScript and Node.js. Work is centred on the Android ecosystem — native modules, state management, offline storage and performance tuning — with a secondary track in applied AI: on-device inference, local model integration, NLP datasets and LLM-backed developer tooling.";
+
+const skills = [
+	{
+		label: "Mobile",
+		items:
+			"React Native, Android (Kotlin / Java), React Navigation, Redux Toolkit, Native Modules, Offline Storage, Performance Tuning, Push Notifications, Detox",
+	},
+	{
+		label: "Web",
+		items:
+			"TypeScript, JavaScript (ES6+), Python, Kotlin, Java, React, Node.js, Express, Astro, HTML, CSS, REST, GraphQL, WebSockets",
+	},
+	{
+		label: "AI / ML",
+		items:
+			"On-device inference, ExecuTorch, local model integration, NLP dataset engineering, LLM tooling, MCP servers, prompt engineering",
+	},
+	{
+		label: "Cloud",
+		items:
+			"AWS (Solutions Architect & AI Practitioner certified), Docker, GitHub Actions, CI/CD, GitHub Apps, Play Console, npm",
+	},
+	{
+		label: "Process",
+		items:
+			"Agile / Scrum, code review, unit and integration testing, JIRA, technical documentation",
+	},
+];
+
+const roles = [
+	{
+		title: "Software Engineer",
+		company: "Virtusa",
+		location: "Colombo, Sri Lanka",
+		dates: "Oct 2023 — Present",
+		points: [
+			"Architected and scaled enterprise mobile applications using React Native, TypeScript and Redux, serving clients across multiple markets.",
+			"Engineered custom native Android modules and optimised UI-thread rendering, achieving consistent 60fps animations and 35% faster startup times.",
+			"Integrated RESTful and GraphQL APIs with client-side caching, offline synchronisation and secure state persistence.",
+			"Mentored engineering peers on React Native upgrades, state management architecture and automated testing strategies.",
+		],
+	},
+	{
+		title: "Associate Software Engineer",
+		company: "Virtusa",
+		location: "Colombo, Sri Lanka",
+		dates: "Feb 2022 — Oct 2023",
+		points: [
+			"Developed modular React Native components and managed complex state flows using Redux and TypeScript.",
+			"Delivered features on sprint cadence while maintaining code quality and test coverage standards.",
+			"Resolved critical mobile rendering bugs and platform-specific Android device compatibility issues.",
+		],
+	},
+];
+
+const projects = [
+	{
+		name: "CleanBoard",
+		tech: "Android · Keyboard IME · Sinhala",
+		points: [
+			"Minimalist, privacy-focused Android keyboard supporting Sinhala and English input: phonetic Singlish with live suggestions and a traditional Sinhala layout. No data collection and no internet permission.",
+		],
+	},
+	{
+		name: "SoundDrift",
+		tech: "Kotlin · Audio · Networking",
+		points: [
+			"Low-latency audio streaming from Android devices to Windows, macOS and Linux over UDP, with a desktop client that auto-discovers the phone. Free and open source.",
+		],
+	},
+	{
+		name: "WifiHeatmap",
+		tech: "Android · Wi-Fi · Sensor fusion",
+		points: [
+			"Android Wi-Fi site survey tool that fuses biomechanical step detection and heading sensors into floor-plan RF heatmaps, rates channels across 2.4, 5 and 6 GHz, and keeps every measurement on the device.",
+		],
+	},
+	{
+		name: "NoteGuard",
+		tech: "Android · On-device AI · Encryption",
+		points: [
+			"Offline notes app where each note is a plain Markdown file in a folder the user picks, encrypted with a key derived from their PIN, with a local model for chat, semantic search and summaries. No account, no server, no upload.",
+		],
+	},
+	{
+		name: "RN Safe Upgrade",
+		tech: "TypeScript · Tooling · React Native",
+		points: [
+			"Open-source tool for upgrading React Native safely: diffs dependency files between versions and reports compatibility issues before the upgrade runs.",
+		],
+	},
+	{
+		name: "Sinhala Commons",
+		tech: "Python · Dataset engineering · Sinhala NLP",
+		points: [
+			"Built a 42.3M-sentence open corpus for Sinhala NLP, including the collection pipeline, a per-source licence audit registry and a published datasheet.",
+		],
+	},
+	{
+		name: "DocSync",
+		tech: "Python · LLMs · GitHub App",
+		points: [
+			"A GitHub App that analyses a pull request diff, detects documentation drift and posts a reviewable report, with multi-provider LLM support and a heuristic fallback.",
+		],
+	},
+];
+
+const certifications = [
+	{
+		name: "AWS Certified Solutions Architect — Associate",
+		issuer: "Amazon Web Services",
+		dates: "Mar 2025 — Mar 2028",
+	},
+	{
+		name: "AWS Certified AI Practitioner",
+		issuer: "Amazon Web Services",
+		dates: "Mar 2025 — Mar 2028",
+	},
+];
+
+const education = [
+	{
+		degree: "BSc (Hons) Software Engineering",
+		detail: "Computer Software Engineering",
+		school: "Birmingham City University",
+		dates: "Mar 2016 — Jan 2022",
+	},
+	{
+		degree: "Ordinary Level · Advanced Level",
+		detail: "",
+		school: "Bandaranayake College, Gampaha",
+		dates: "2011 — 2019",
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="color-scheme" content="light dark" />
+
+		<title>Resume — Vidura Fernando</title>
+		<meta
+			name="description"
+			content="Resume of Vidura Fernando — mobile app developer and AI engineer. React Native, native Android, on-device machine learning, Sinhala NLP."
+		/>
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={`${site}/resume/`} />
+
+		<meta property="og:type" content="profile" />
+		<meta property="og:title" content="Vidura Fernando — Resume" />
+		<meta
+			property="og:description"
+			content="Mobile app developer and AI engineer. React Native, native Android, on-device machine learning, Sinhala NLP."
+		/>
+		<meta property="og:image" content={`${site}/og.png`} />
+
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="/favicon-32x32.png"
+		/>
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+	</head>
+	<body>
+		<a class="skip" href="#main">Skip to content</a>
+
+		<div class="resume-bar">
+			<div class="wrap">
+				<a href="/">← Portfolio</a>
+				<a href="#" id="print-btn">Print / Save as PDF</a>
+			</div>
+		</div>
+
+		<main id="main" class="resume">
+			<header class="resume-header">
+				<h1>Vidura Fernando</h1>
+				<p class="resume-role">
+					Mobile App Developer &amp; AI Engineer — React Native, Android,
+					On-device ML
+				</p>
+				<p class="resume-contact">
+					Colombo, Sri Lanka · github.com/heymeowcat ·
+					linkedin.com/in/vidura-fernando
+				</p>
+			</header>
+
+			<section>
+				<h2>Summary</h2>
+				<p>{summary}</p>
+			</section>
+
+			<section>
+				<h2>Technical skills</h2>
+				<dl>
+					{
+						skills.map((row) => (
+							<div class="spec-row">
+								<dt>{row.label}</dt>
+								<dd>{row.items}</dd>
+							</div>
+						))
+					}
+				</dl>
+			</section>
+
+			<section>
+				<h2>Experience</h2>
+				{
+					roles.map((role) => (
+						<div class="entry">
+							<div class="entry-head">
+								<h3>{role.title}</h3>
+								<span class="sub">
+									{role.company} · {role.location}
+								</span>
+								<span class="when">{role.dates}</span>
+							</div>
+							<ul class="bullets">
+								{role.points.map((point) => (
+									<li>{point}</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</section>
+
+			<section>
+				<h2>Selected projects</h2>
+				{
+					projects.map((project) => (
+						<div class="entry">
+							<div class="entry-head">
+								<h3>{project.name}</h3>
+								<span class="sub">{project.tech}</span>
+							</div>
+							<ul class="bullets">
+								{project.points.map((point) => (
+									<li>{point}</li>
+								))}
+							</ul>
+						</div>
+					))
+				}
+			</section>
+
+			<section>
+				<h2>Certifications</h2>
+				{
+					certifications.map((cert) => (
+						<div class="entry">
+							<div class="entry-head">
+								<h3>{cert.name}</h3>
+								<span class="sub">{cert.issuer}</span>
+								<span class="when">{cert.dates}</span>
+							</div>
+						</div>
+					))
+				}
+			</section>
+
+			<section>
+				<h2>Education</h2>
+				{
+					education.map((row) => (
+						<div class="entry">
+							<div class="entry-head">
+								<h3>{row.degree}</h3>
+								<span class="when">{row.dates}</span>
+							</div>
+							<p class="entry-sub">
+								{row.school}
+								{row.detail && ` · ${row.detail}`}
+							</p>
+						</div>
+					))
+				}
+			</section>
+		</main>
+
+		<script>
+			const printBtn = document.getElementById("print-btn");
+			printBtn?.addEventListener("click", (event) => {
+				event.preventDefault();
+				window.print();
+			});
+		</script>
+	</body>
+</html>

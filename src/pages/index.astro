@@ -1,43 +1,183 @@
 ---
 import "../styles/global.css";
 
-const featuredProjects = [
+const nav = [
+	{ label: "GitHub", href: "https://github.com/heymeowcat", external: true },
+	{ label: "LinkedIn", href: "https://linkedin.com/in/vidura-fernando", external: true },
+	{ label: "Resume", href: "/resume/" },
+];
+
+const roles = [
 	{
-		name: "React Native Safe Upgrade",
-		description:
-			"Safely upgrade React Native dependencies. View file changes between versions and get compatibility-checked recommendations.",
-		url: "https://heymeowcat.is-a.dev/rn-safe-upgrade/",
-		tech: "React Native, Tooling, Upgrades",
+		title: "Software Engineer",
+		org: "Virtusa",
+		location: "Colombo",
+		dates: "Oct 2023 — Present",
+		points: [
+			"Architected and scaled enterprise mobile applications using React Native, TypeScript and Redux, for clients in multiple markets.",
+			"Engineered custom native Android modules and optimised UI-thread rendering, reaching 60fps animations and 35% faster startup times.",
+			"Integrated REST and GraphQL APIs with client-side caching, offline sync and secure state persistence.",
+			"Mentored engineers on React Native upgrades, state management architecture and automated testing.",
+		],
 	},
 	{
-		name: "NoteGuard",
+		title: "Associate Software Engineer",
+		org: "Virtusa",
+		location: "Colombo",
+		dates: "Feb 2022 — Oct 2023",
+		points: [
+			"Built modular React Native components and managed complex state flows with Redux and TypeScript.",
+			"Delivered features on sprint cadence while holding code quality and test coverage standards.",
+			"Resolved critical rendering bugs and Android device compatibility issues.",
+		],
+	},
+];
+
+const work = [
+	{
+		name: "CleanBoard",
 		description:
-			"Private, offline note-taking app with on-device AI and military-grade encryption. Your thoughts belong to you.",
-		url: "https://heymeowcat.is-a.dev/noteguard-site/",
-		tech: "Android, Local AI, Privacy",
+			"A minimalist Android keyboard for Sinhala and English — phonetic Singlish with live suggestions, plus a traditional Sinhala layout. No data collection, and no internet permission at all.",
+		tags: "Android · Keyboard IME · Sinhala",
+		href: "https://play.google.com/store/apps/details?id=com.heymeowcat.cleanboard",
+		links: [
+			{
+				label: "Site",
+				href: "https://heymeowcat.is-a.dev/cleanboard-site/",
+				aria: "CleanBoard Site",
+			},
+		],
 	},
 	{
 		name: "SoundDrift",
 		description:
-			"Stream high-quality audio from your Android device to Windows, macOS, or Linux with low latency.",
-		url: "https://heymeowcat.is-a.dev/SoundDrift-site/",
-		tech: "Android, Audio Streaming, Cross-Platform",
+			"Streams audio from an Android device to Windows, macOS or Linux over UDP, with the desktop client auto-discovering the phone on the network. Free and open source.",
+		tags: "Kotlin · Audio · Networking",
+		href: "https://play.google.com/store/apps/details?id=com.heymeowcat.sounddrift",
+		links: [
+			{
+				label: "Repo",
+				href: "https://github.com/heymeowcat/SoundDrift",
+				aria: "SoundDrift Repo",
+			},
+		],
 	},
 	{
-		name: "CleanBoard",
+		name: "WifiHeatmap",
 		description:
-			"A minimalist, privacy-focused Android keyboard for seamless Sinhala and English typing.",
-		url: "https://heymeowcat.is-a.dev/cleanboard-site/",
-		tech: "Android, Keyboard, Sinhala",
+			"An Android Wi-Fi site survey tool. Walk a floor plan while it fuses step detection and heading sensors into an RF coverage heatmap, then rate channels across 2.4, 5 and 6 GHz. Runs fully offline, with no telemetry.",
+		tags: "Android · Wi-Fi · Sensor fusion",
+		href: "https://play.google.com/store/apps/details?id=com.heymeowcat.wifiheatmap",
+		links: [
+			{
+				label: "Site",
+				href: "https://heymeowcat.is-a.dev/wifiheatmap-site/",
+				aria: "WifiHeatmap Site",
+			},
+		],
 	},
 	{
-		name: "Dev Tools",
+		name: "NoteGuard",
 		description:
-			"Essential developer utilities including a JSON Visualizer to beautify and validate data.",
-		url: "https://heymeowcat.is-a.dev/tools/",
-		tech: "Web Tools, JSON, Utilities",
+			"An offline notes app where every note is a plain Markdown file in a folder you choose, encrypted with a key derived from your PIN, with a local model for chat, semantic search and summaries. No account, no server, no upload.",
+		tags: "Android · On-device AI · Encryption",
+		href: "https://play.google.com/store/apps/details?id=com.heymeowcat.list",
+		links: [],
+	},
+	{
+		name: "RN Safe Upgrade",
+		description:
+			"Compares two React Native versions, diffs the dependency files, and flags the changes that will break the upgrade before you run it.",
+		tags: "TypeScript · Tooling · React Native",
+		href: "https://heymeowcat.is-a.dev/rn-safe-upgrade/",
+		links: [],
 	},
 ];
+
+const also = [
+	{
+		name: "Sinhala Commons",
+		description:
+			"A 42.3M-sentence open corpus for Sinhala NLP, with a licence audit for every source.",
+		href: "https://huggingface.co/datasets/heymeowcat/sinhala-commons",
+		links: [
+			{
+				label: "Repo",
+				href: "https://github.com/heymeowcat/sinhala-commons-code",
+				aria: "Sinhala Commons Repo",
+			},
+		],
+	},
+	{
+		name: "DocSync",
+		description:
+			"A GitHub App that finds documentation drift in a pull request and posts a reviewable report.",
+		href: "https://github.com/heymeowcat/DocSync",
+		links: [],
+	},
+	{
+		name: "MeowUI",
+		description: "A React Native component library with comic-style motion.",
+		href: "https://www.npmjs.com/package/react-native-meowui",
+		links: [],
+	},
+	{
+		name: "MasonryGridView",
+		description: "A React Native masonry layout component.",
+		href: "https://www.npmjs.com/package/react-native-masonry-gridview",
+		links: [],
+	},
+];
+
+const stack = [
+	{
+		label: "Mobile",
+		items:
+			"React Native, Kotlin, Java, Android, React Navigation, Redux Toolkit, Detox",
+	},
+	{
+		label: "Web",
+		items: "TypeScript, React, Node.js, Express, Astro",
+	},
+	{
+		label: "AI / ML",
+		items:
+			"On-device inference, ExecuTorch, NLP datasets, LLM tooling, MCP servers, RAG",
+	},
+	{
+		label: "Infra",
+		items:
+			"AWS, Docker, GitHub Actions, CI/CD, Play Console, npm, Hugging Face",
+	},
+];
+
+const education = [
+	{
+		degree: "BSc (Hons) Software Engineering",
+		school: "Birmingham City University",
+		years: "2016 — 2022",
+	},
+	{
+		degree: "Ordinary Level · Advanced Level",
+		school: "Bandaranayake College, Gampaha",
+		years: "2011 — 2019",
+	},
+];
+
+const certifications = [
+	{
+		name: "AWS Certified Solutions Architect — Associate",
+		issuer: "Amazon Web Services",
+		years: "2025 — 2028",
+	},
+	{
+		name: "AWS Certified AI Practitioner",
+		issuer: "Amazon Web Services",
+		years: "2025 — 2028",
+	},
+];
+
+const site = "https://heymeowcat.is-a.dev";
 ---
 
 <!doctype html>
@@ -45,104 +185,77 @@ const featuredProjects = [
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="color-scheme" content="light dark" />
 
-		<!-- Primary Meta Tags -->
-		<title>Heymeowcat | Vidura Fernando - Software Engineer</title>
-		<meta
-			name="title"
-			content="Heymeowcat | Vidura Fernando - Software Engineer"
-		/>
+		<title>Vidura Fernando — Mobile App Developer &amp; AI Engineer</title>
 		<meta
 			name="description"
-			content="Vidura Fernando (Heymeowcat) is a Software Engineer specializing in React Native, Mobile, and Web Development. Explore projects like NoteGuard, SoundDrift, and RN Safe Upgrade."
-		/>
-		<meta
-			name="keywords"
-			content="Vidura Fernando, heymeowcat, Software Engineer, React Native, NoteGuard, SoundDrift, CleanBoard, RN Safe Upgrade, Mobile App Development, Portfolio"
+			content="Vidura Fernando is a mobile app developer and AI engineer in Colombo, Sri Lanka. Builds React Native and native Android apps, on-device models and NLP tooling."
 		/>
 		<meta name="author" content="Vidura Fernando" />
 		<meta name="robots" content="index, follow" />
-		<link rel="canonical" href="https://heymeowcat.is-a.dev/" />
+		<link rel="canonical" href={site} />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://heymeowcat.is-a.dev/" />
-		<meta
-			property="og:title"
-			content="Heymeowcat | Vidura Fernando - Software Engineer"
-		/>
+		<meta property="og:type" content="profile" />
+		<meta property="og:url" content={site} />
+		<meta property="og:title" content="Vidura Fernando" />
 		<meta
 			property="og:description"
-			content="Vidura Fernando (Heymeowcat) is a Software Engineer specializing in React Native, Mobile, and Web Development. Explore projects, skills, and the portfolio of a passionate developer."
+			content="Mobile app developer and AI engineer. React Native, native Android, on-device models, Sinhala NLP."
 		/>
-		<meta
-			property="og:image"
-			content="https://avatars.githubusercontent.com/u/heymeowcat"
-		/>
+		<meta property="og:image" content={`${site}/og.png`} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://heymeowcat.is-a.dev/" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Vidura Fernando" />
 		<meta
-			property="twitter:title"
-			content="Heymeowcat | Vidura Fernando - Software Engineer"
+			name="twitter:description"
+			content="Mobile app developer and AI engineer. React Native, native Android, on-device models, Sinhala NLP."
 		/>
-		<meta
-			property="twitter:description"
-			content="Vidura Fernando (Heymeowcat) is a Software Engineer specializing in React Native, Mobile, and Web Development. Explore projects, skills, and the portfolio of a passionate developer."
-		/>
-		<meta
-			property="twitter:image"
-			content="https://avatars.githubusercontent.com/u/heymeowcat"
-		/>
+		<meta name="twitter:image" content={`${site}/og.png`} />
 
-		<!-- JSON-LD Structured Data -->
 		<script
 			type="application/ld+json"
-			set:html={JSON.stringify([
-				{
-					"@context": "https://schema.org",
-					"@type": "Person",
-					name: "Vidura Fernando",
-					alternateName: "heymeowcat",
-					url: "https://heymeowcat.is-a.dev",
-					image: "https://avatars.githubusercontent.com/u/heymeowcat",
-					sameAs: [
-						"https://github.com/heymeowcat",
-						"https://linkedin.com/in/vidura-fernando",
-					],
-					jobTitle: "Software Engineer",
-					worksFor: {
-						"@type": "Organization",
-						name: "Self-Employed",
-					},
-					description:
-						"Passionate Software Engineer specializing in mobile and web development with expertise in React Native, JavaScript, and Python.",
+			set:html={JSON.stringify({
+				"@context": "https://schema.org",
+				"@type": "Person",
+				name: "Vidura Fernando",
+				alternateName: "heymeowcat",
+				url: site,
+				jobTitle: "Mobile App Developer and AI Engineer",
+				description:
+					"Mobile app developer and AI engineer specialising in React Native, native Android, on-device machine learning and Sinhala NLP.",
+				sameAs: [
+					"https://github.com/heymeowcat",
+					"https://linkedin.com/in/vidura-fernando",
+				],
+				worksFor: {
+					"@type": "Organization",
+					name: "Virtusa",
 				},
-				{
-					"@context": "https://schema.org",
-					"@type": "ItemList",
-					itemListElement: featuredProjects.map((project, index) => ({
-						"@type": "SoftwareSourceCode",
-						position: index + 1,
-						name: project.name,
-						description: project.description,
-						url: project.url,
-						author: {
-							"@type": "Person",
-							name: "Vidura Fernando",
-						},
-					})),
+				address: {
+					"@type": "PostalAddress",
+					addressLocality: "Colombo",
+					addressCountry: "LK",
 				},
-			])}
+				alumniOf: {
+					"@type": "CollegeOrUniversity",
+					name: "Birmingham City University",
+				},
+				knowsAbout: [
+					"React Native",
+					"Android",
+					"Kotlin",
+					"TypeScript",
+					"Python",
+					"On-device AI",
+					"NLP",
+				],
+			})}
 		/>
 
-		<!-- Favicon -->
-		<link
-			rel="apple-touch-icon"
-			sizes="180x180"
-			href="/apple-touch-icon.png"
-		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link
 			rel="icon"
 			type="image/png"
@@ -155,321 +268,201 @@ const featuredProjects = [
 			sizes="16x16"
 			href="/favicon-16x16.png"
 		/>
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		<link rel="manifest" href="/site.webmanifest" />
-
-		<!-- Google Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap"
-			rel="stylesheet"
-		/>
-
-		<!-- Font Awesome for Icons -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-			integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
 	</head>
 	<body>
-		<!-- Background Effects -->
-		<div class="bg-container">
-			<div class="shape shape-1"></div>
-			<div class="shape shape-2"></div>
-			<div class="shape shape-3"></div>
-		</div>
+		<a class="skip" href="#main">Skip to content</a>
 
-		<header class="hero">
-			<canvas id="hero-canvas"></canvas>
-
-			<div class="hero-content" id="hero-content">
-				<div class="hero-title-wrapper">
-					<div class="ambigram-container" id="ambigram">
-						<div class="letter-box" data-index="0">
-							<svg viewBox="0 0 100 120" class="letter-svg">
-								<path
-									id="p0"
-									d="M20,15 Q30,70 50,110 Q70,70 80,15"
-								></path>
-								<text class="path-text" dy="1.2">
-									<textPath
-										href="#p0"
-										startOffset="50%"
-										text-anchor="middle"
-										spacing="auto"
-									>
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO
-									</textPath>
-								</text>
-							</svg>
-						</div>
-
-						<div class="letter-box" data-index="1">
-							<svg viewBox="0 0 100 120" class="letter-svg">
-								<path
-									id="p1"
-									d="M35,15 Q55,35 70,50 C5,60 5,105 70,110"
-								></path>
-								<text class="path-text" dy="1">
-									<textPath
-										href="#p1"
-										startOffset="50%"
-										text-anchor="middle"
-										spacing="auto"
-									>
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO
-									</textPath>
-								</text>
-							</svg>
-						</div>
-
-						<div class="letter-box" data-index="2">
-							<svg viewBox="0 0 100 120" class="letter-svg">
-								<path
-									id="p2"
-									d="M20,110 L20,25 Q20,15 35,15 L75,15 Q90,25 90,50 Q85,100 60,110"
-								></path>
-								<text class="path-text" dy="1">
-									<textPath
-										href="#p2"
-										startOffset="50%"
-										text-anchor="middle"
-										spacing="auto"
-									>
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO
-									</textPath>
-								</text>
-							</svg>
-						</div>
-
-						<div class="letter-box" data-index="3">
-							<svg viewBox="0 0 100 120" class="letter-svg">
-								<path
-									id="p3"
-									d="M20,110 L20,25 Q20,15 35,15 L75,15 Q90,25 90,50 Q85,100 60,110"
-								></path>
-								<text class="path-text" dy="1">
-									<textPath
-										href="#p3"
-										startOffset="50%"
-										text-anchor="middle"
-										spacing="auto"
-									>
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO
-									</textPath>
-								</text>
-							</svg>
-						</div>
-
-						<div class="letter-box" data-index="4">
-							<svg viewBox="0 0 100 120" class="letter-svg">
-								<path
-									id="p4"
-									d="M35,15 Q55,35 70,50 C5,60 5,105 70,110"
-								></path>
-								<text class="path-text" dy="1">
-									<textPath
-										href="#p4"
-										startOffset="50%"
-										text-anchor="middle"
-										spacing="auto"
-									>
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO
-									</textPath>
-								</text>
-							</svg>
-						</div>
-
-						<div class="letter-box" data-index="5">
-							<svg viewBox="0 0 100 120" class="letter-svg">
-								<path
-									id="p5"
-									d="M20,15 Q30,70 50,110 Q70,70 80,15"
-								></path>
-								<text class="path-text" dy="1.2">
-									<textPath
-										href="#p5"
-										startOffset="50%"
-										text-anchor="middle"
-										spacing="auto"
-									>
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO FERNANDO FERNANDO
-										FERNANDO FERNANDO
-									</textPath>
-								</text>
-							</svg>
-						</div>
-					</div>
+		<header class="site-head">
+			<div class="wrap head-row">
+				<div>
+					<h1 class="name">Vidura Fernando</h1>
+					<p class="role">
+						Mobile app developer &amp; AI engineer · Colombo, Sri Lanka
+					</p>
 				</div>
+				<nav class="nav" aria-label="Primary">
+					{
+						nav.map((item) => (
+							<a
+								href={item.href}
+								target={item.external ? "_blank" : undefined}
+								rel={item.external ? "noopener noreferrer" : undefined}
+							>
+								{item.label}
+							</a>
+						))
+					}
+				</nav>
 			</div>
 		</header>
 
-		<main>
-			<!-- About Me Section -->
-			<section id="about">
-				<div class="container">
-					<div class="about-content">
-						<div class="about-text">
-							<h2 class="section-title">About Me</h2>
-							<p class="about-description">
-								I'm a passionate Software Engineer specializing
-								in mobile and web development. With expertise in
-								React Native, I build cross-platform
-								applications that deliver exceptional user
-								experiences. I love exploring new technologies
-								and creating innovative solutions to complex
-								problems.
-							</p>
-
-							<div class="resume-cta">
-								<button id="download-resume-btn" class="resume-btn" type="button">
-									<i class="fas fa-file-arrow-down"></i>
-									<span>Download Resume</span>
-								</button>
-							</div>
-
-							<div class="tech-stack">
-								<h3>Tech Stack</h3>
-								<div class="tech-grid">
-									<div class="tech-item">
-										<i
-											class="fab fa-react tech-icon"
-											style="color: #61DAFB;"></i>
-										<span>React Native</span>
-									</div>
-									<div class="tech-item">
-										<i
-											class="fas fa-brain tech-icon"
-											style="color: #FF6F61;"></i>
-										<span>Machine Learning</span>
-									</div>
-									<div class="tech-item">
-										<i
-											class="fab fa-js tech-icon"
-											style="color: #F7DF1E;"></i>
-										<span>JavaScript</span>
-									</div>
-									<div class="tech-item">
-										<i
-											class="fab fa-js tech-icon"
-											style="color: #3178C6;"></i>
-										<span>TypeScript</span>
-									</div>
-									<div class="tech-item">
-										<i
-											class="fab fa-python tech-icon"
-											style="color: #3776AB;"></i>
-										<span>Python</span>
-									</div>
-									<div class="tech-item">
-										<i
-											class="fab fa-aws tech-icon"
-											style="color: #FF9900;"></i>
-										<span>AWS</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="about-stats">
-							<div class="stat-card">
-								<div class="stat-number" data-target="4">0</div>
-								<div class="stat-label">Years Experience</div>
-							</div>
-							<div class="stat-card">
-								<div class="stat-number" data-target="10">
-									0
-								</div>
-								<div class="stat-label">Projects Completed</div>
-							</div>
-							<div class="stat-card">
-								<div class="stat-number" data-target="10">
-									0
-								</div>
-								<div class="stat-label">Technologies</div>
-							</div>
-						</div>
+		<main id="main">
+			<section class="intro">
+				<div class="wrap">
+					<p class="lede">
+						Mobile app developer and AI engineer in Colombo, Sri Lanka.
+						Four years shipping React Native and native Android in production,
+						now working across TypeScript, Kotlin and Python on on-device
+						models, Sinhala NLP and developer tooling.
+					</p>
+					<p class="lede dim">
+						Most of it is offline-first work: apps that keep working without a
+						network, and models that run on the device instead of in someone
+						else's cloud.
+					</p>
+					<div class="cta-row">
+						<a class="btn" href="/resume/">
+							Resume <span class="arrow">→</span>
+						</a>
+						<span class="meta-note">Last updated October 2026</span>
 					</div>
 				</div>
 			</section>
 
-			<section id="projects">
-				<div class="container">
-					<div class="project-header">
-						<h2>Selected Works</h2>
-					</div>
-					<div id="github-projects" class="project-container">
+			<section id="experience">
+				<div class="wrap">
+					<h2 class="eyebrow">Experience</h2>
+					{
+						roles.map((role) => (
+							<div class="role">
+								<div class="role-head">
+									<h3>{role.title}</h3>
+									<span class="role-org">
+										{role.org} · {role.location}
+									</span>
+									<span class="role-dates">{role.dates}</span>
+								</div>
+								<ul class="bullets">
+									{role.points.map((point) => (
+										<li>{point}</li>
+									))}
+								</ul>
+							</div>
+						))
+					}
+				</div>
+			</section>
+
+			<section id="work">
+				<div class="wrap">
+					<h2 class="eyebrow">Work</h2>
+					<ul class="work">
 						{
-							featuredProjects.map((project, index) => (
-								<div
-									class="project-card glass reveal static-project"
-									style={`animation-delay: ${index * 0.1}s`}
-									data-name={project.name}
-								>
-									<div class="card-content">
-										<h3>{project.name}</h3>
-										<p class="project-description">
-											{project.description}
-										</p>
-										<div class="card-meta">
-											<span class="tech">
-												{project.tech}
-											</span>
-										</div>
-										<a
-											href={project.url}
-											target="_blank"
-											class="project-link"
-										>
-											View Project{" "}
-											<span class="arrow">→</span>
-										</a>
+							work.map((item) => (
+								<li class="work">
+									<div class="work-head">
+										<h3 class="work-title">
+											<a
+												href={item.href}
+												target="_blank"
+												rel="noopener noreferrer"
+											>
+												{item.name}
+											</a>
+										</h3>
+										{item.links.length > 0 && (
+											<div class="work-links">
+												{item.links.map((link) => (
+													<a
+														href={link.href}
+														target="_blank"
+														rel="noopener noreferrer"
+														aria-label={link.aria}
+													>
+														{link.label}
+													</a>
+												))}
+											</div>
+										)}
 									</div>
-									<div class="card-glow" />
+									<p class="work-desc">{item.description}</p>
+									<p class="work-tags">{item.tags}</p>
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</section>
+
+			<section id="open-source">
+				<div class="wrap">
+					<h2 class="eyebrow">Open source</h2>
+					<ul class="also">
+						{
+							also.map((item) => (
+								<li>
+									<a
+										class="also-title"
+										href={item.href}
+										target="_blank"
+										rel="noopener noreferrer"
+									>
+										{item.name}
+									</a>
+									<span class="also-desc">{item.description}</span>
+									{item.links.length > 0 && (
+										<span class="also-links">
+											{item.links.map((link) => (
+												<a
+													href={link.href}
+													target="_blank"
+													rel="noopener noreferrer"
+													aria-label={link.aria}
+												>
+													{link.label}
+												</a>
+											))}
+										</span>
+									)}
+								</li>
+							))
+						}
+					</ul>
+				</div>
+			</section>
+
+			<section id="stack">
+				<div class="wrap">
+					<h2 class="eyebrow">Stack</h2>
+					<dl>
+						{
+							stack.map((row) => (
+								<div class="spec-row">
+									<dt>{row.label}</dt>
+									<dd>{row.items}</dd>
+								</div>
+							))
+						}
+					</dl>
+				</div>
+			</section>
+
+			<section id="background">
+				<div class="wrap split">
+					<div>
+						<h2 class="eyebrow">Education</h2>
+						{
+							education.map((row) => (
+								<div class="mini">
+									<strong>{row.degree}</strong>
+									<p class="mini-sub">
+										{row.school} · {row.years}
+									</p>
+								</div>
+							))
+						}
+					</div>
+					<div>
+						<h2 class="eyebrow">Certifications</h2>
+						{
+							certifications.map((row) => (
+								<div class="mini">
+									<strong>{row.name}</strong>
+									<p class="mini-sub">
+										{row.issuer} · {row.years}
+									</p>
 								</div>
 							))
 						}
@@ -478,40 +471,17 @@ const featuredProjects = [
 			</section>
 		</main>
 
-		<footer class="footer">
-			<div class="container">
-				<div class="github-info">
+		<footer class="site-foot">
+			<div class="wrap foot-row">
+				<p>© 2026 Vidura Fernando</p>
+				<p>
 					<a
 						href="https://github.com/heymeowcat"
-						rel="noopener noreferrer"
 						target="_blank"
+						rel="noopener noreferrer">github.com/heymeowcat</a
 					>
-						<svg
-							height="24"
-							width="24"
-							viewBox="0 0 24 24"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-							></path>
-						</svg>
-						<p>github.com/heymeowcat</p>
-					</a>
-				</div>
+				</p>
 			</div>
 		</footer>
-
-		<script src="../scripts/main.js"></script>
-		<script>
-			import { generateResumePDF } from "../scripts/resume.js";
-
-			const resumeBtn = document.getElementById("download-resume-btn");
-			if (resumeBtn) {
-				resumeBtn.addEventListener("click", () => {
-					generateResumePDF();
-				});
-			}
-		</script>
 	</body>
 </html>
